@@ -1,5 +1,17 @@
 .root {
-    width: 100%;
-    height: 100%;
-    background-color: rgb(78, 205, 148);
+  width: 100%;
+  height: 100%;
+  background-color: #0e0d0d;
+  padding: 150px 50px 0 50px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+}
+
+.element::-webkit-scrollbar {
+  width: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }
