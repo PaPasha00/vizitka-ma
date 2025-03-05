@@ -6,6 +6,7 @@
   box-sizing: border-box;
   position: relative;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .element::-webkit-scrollbar {

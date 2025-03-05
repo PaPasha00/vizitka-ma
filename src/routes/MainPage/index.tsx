@@ -6,13 +6,6 @@ import s from "./MainPage.module.scss";
 import Preview from "./Preview";
 
 function MainPage() {
-<<<<<<< Updated upstream
-    return (
-        <div className={s.root}>
-            main page
-        </div>
-    )
-=======
   return (
     <div className={s.root}>
       <Header />
@@ -22,7 +15,6 @@ function MainPage() {
       <Footer />
     </div>
   );
->>>>>>> Stashed changes
 }
 
 export default MainPage;
