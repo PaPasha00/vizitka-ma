@@ -9,7 +9,17 @@ export const getDate = createApi({
     getAvailableTimes: builder.query<any, any>({
       query: () => 'time-slots/?format=json',
     }),
+    getServices: builder.query<any, any>({
+      query: () => 'services/?format=json',
+    }),
+    setBookingSlot: builder.mutation({
+      query: (body) => ({
+        url: 'bookings/',
+        method: 'POST',
+        body, 
+      }),
+    }),
   }),
 })
 
-export const { useGetAvailableTimesQuery } = getDate
+export const { useGetAvailableTimesQuery, useGetServicesQuery, useSetBookingSlotMutation } = getDate
