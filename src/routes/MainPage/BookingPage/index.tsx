@@ -83,6 +83,14 @@ function BookingPage() {
               <div className={s.modal_title}>
                 Записать на {modalData.data.date} в {modalData.data.start_time}
               </div>
+              <input placeholder="ИМЯ" className={s.modal_input} type="text" />
+              <input
+                placeholder="EMAIL"
+                className={s.modal_input}
+                type="text"
+              />
+              <input placeholder="Имя" className={s.modal_input} type="text" />
+              <input placeholder="Имя" className={s.modal_input} type="text" />
               <input placeholder="Имя" className={s.modal_input} type="text" />
             </div>
           }
