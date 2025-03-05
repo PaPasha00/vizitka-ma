@@ -24,9 +24,16 @@ function BookingPage() {
   const [bookingPageState, setBookingStatePage] = useState(0);
 
   const [form] = Form.useForm();
-  const [selectedMessenger, setSelectedMessenger] = useState(null);
+  const [selectedMessenger, setSelectedMessenger] = useState("");
 
-  const onFinish = (values) => {
+  const onFinish = (values: {
+    service: string;
+    name: string;
+    email: string;
+    phone: string;
+    messengerUsername: string;
+    messenger: string;
+  }) => {
     bookService({
       service: values.service,
       time_slot: modalData.data.id,
@@ -51,7 +58,7 @@ function BookingPage() {
     // }
   };
 
-  const handleMessengerChange = (value) => {
+  const handleMessengerChange = (value: string) => {
     setSelectedMessenger(value);
   };
 

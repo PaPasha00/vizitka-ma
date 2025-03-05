@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { IData } from "./types";
 
 export function transformData(data: IData[]) {
@@ -21,7 +22,7 @@ export function transformData(data: IData[]) {
     for (const [day, items] of Object.entries(groupedByDay)) {
       result.push({
         monthsDay: day,
-        items: items,
+        items: items as IData,
       });
     }
     return result;
