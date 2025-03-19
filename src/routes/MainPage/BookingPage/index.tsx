@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ButtonArrow from "../../../assets/ButtonArrow";
 import Modal from "../../../components/Modal";
 import {
@@ -11,14 +11,18 @@ import { USE_STATE_STARTER } from "./constants";
 import { Form, Input, Select, Button } from "antd";
 import { transformData } from "./helpers";
 const { Option } = Select;
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function BookingPage() {
   const { data, isLoading } = useGetAvailableTimesQuery("");
   const { data: services, isLoading: isLoadingServices } =
     useGetServicesQuery("");
-  const [bookService, { isLoading: bookingLoading }] =
+  const [bookService, { isLoading: bookingLoading, isError }] =
     useSetBookingSlotMutation();
-  console.log(bookingLoading);
+
+  let [firstOpen, setFirstOpen] = useState(true);
 
   const [modalData, setModalData] = useState(USE_STATE_STARTER);
   const [bookingPageState, setBookingStatePage] = useState(0);
@@ -45,17 +49,22 @@ function BookingPage() {
       whatsapp_contact:
         values.messenger === "whatsapp" ? values.messengerUsername : "",
       preferred_contact_method: values.messenger,
+    }).then(() => {
+      if (!isError) {
+        toast.success("Форма успешно отправлена!", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        setSelectedMessenger("");
+        form.resetFields();
+        setModalData(USE_STATE_STARTER);
+      } else {
+        toast.error("Ошибка, попробуйте снова.", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      }
     });
-    //   {
-    // "service": "6b2acd43-b6bc-4938-a2f5-706b510f04f1",
-    // "time_slot": "eb2123fa-b28a-43b0-8262-7db0d40a19b4",
-    // "client_name": "тест3",
-    // "email": "ivan@example.com",
-    // "phone_number": "+79001234567",
-    // "telegram_contact": "@gettyz",
-    // "whatsapp_contact": "+79001234567",
-    // "preferred_contact_method": "telegram"
-    // }
   };
 
   const handleMessengerChange = (value: string) => {
@@ -267,17 +276,20 @@ function BookingPage() {
                 )}
 
                 {/* Кнопка отправки формы */}
-                <Form.Item>
-                  <Button className={s.sent} type="primary" htmlType="submit">
-                    Отправить
-                  </Button>
-                </Form.Item>
+                {!bookingLoading && (
+                  <Form.Item>
+                    <Button className={s.sent} type="primary" htmlType="submit">
+                      Отправить
+                    </Button>
+                  </Form.Item>
+                )}
               </Form>
             </div>
           }
           onClose={() => setModalData(USE_STATE_STARTER)}
         />
       )}
+      <ToastContainer />
     </div>
   );
 }

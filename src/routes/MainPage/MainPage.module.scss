@@ -7,6 +7,14 @@
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
+  scroll-behavior: smooth !important;
+
+  @media (max-width: 1000px) {
+    padding: 150px 30px 0 30px;
+  }
+  @media (max-width: 600px) {
+    padding: 150px 15px 0 15px;
+  }
 }
 
 .element::-webkit-scrollbar {

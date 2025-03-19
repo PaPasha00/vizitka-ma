@@ -3,7 +3,7 @@ import s from "./BlockInfo.module.scss";
 
 function BlockInfo() {
   return (
-    <div className={s.root}>
+    <div className={s.root} id="About">
       <div className={s.row}>
         <div className={s.text}>
           I’m John Surname, a senior UI/UX designer basded in New York, USA. I

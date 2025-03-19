@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import s from "./Header.module.scss";
+import clsx from "clsx";
 
 const routes = [
   {
     name: "ОБО МНЕ",
-    to: "/account",
+    to: "#About",
   },
   {
     name: "ЗАПИСЬ",
@@ -20,14 +21,20 @@ function Header() {
   return (
     <div className={s.root}>
       <div className={s.wrapper}>
-        <Link className={s.button} to={"/"}>
+        <Link className={clsx(s.button, s.button_visible)} to={"/"}>
           Михаил <br /> Андреевич
         </Link>
         <div className={s.rigthPart}>
           {routes.map((el) => (
-            <Link className={s.button} to={el.to}>
+            <a
+              className={clsx(
+                s.button,
+                el.name === "ОБО МНЕ" && s.button_visible
+              )}
+              href={el.to}
+            >
               {el.name}
-            </Link>
+            </a>
           ))}
         </div>
       </div>
