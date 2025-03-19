@@ -25,7 +25,7 @@ const socialArr = [
 
 function Footer() {
   return (
-    <footer className={s.root}>
+    <footer className={s.root} id="Contacts">
       <div className={s.row}>
         <div className={s.row_contact}>КОНТАКТЫ</div>
         <div className={s.row_mail}>AOSDIFJOAI@AOJDNFOAN</div>

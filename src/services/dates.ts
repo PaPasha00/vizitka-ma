@@ -17,7 +17,7 @@ export const getDate = createApi({
         url: 'bookings/',
         method: 'POST',
         body, 
-      }),
+      })
     }),
   }),
 })

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import ButtonArrow from "../../../assets/ButtonArrow";
 import Modal from "../../../components/Modal";
 import {
@@ -14,6 +14,7 @@ const { Option } = Select;
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getRuDate } from "../../../utils";
 
 function BookingPage() {
   const { data, isLoading } = useGetAvailableTimesQuery("");
@@ -21,8 +22,6 @@ function BookingPage() {
     useGetServicesQuery("");
   const [bookService, { isLoading: bookingLoading, isError }] =
     useSetBookingSlotMutation();
-
-  let [firstOpen, setFirstOpen] = useState(true);
 
   const [modalData, setModalData] = useState(USE_STATE_STARTER);
   const [bookingPageState, setBookingStatePage] = useState(0);
@@ -97,7 +96,7 @@ function BookingPage() {
   }, [data, bookingPageState]);
 
   return (
-    <div className={s.root}>
+    <div className={s.root} id="Booking">
       <div className={s.container}>
         <div className={s.container_header}>Доступные записи</div>
         <div className={s.container_buttons}>
@@ -147,7 +146,7 @@ function BookingPage() {
           body={
             <div className={s.modal}>
               <div className={s.modal_title}>
-                Запись на {modalData.data.date} в{" "}
+                Запись на {getRuDate(modalData.data.date)} в{" "}
                 {modalData.data.start_time.slice(0, -3)}
               </div>
 
@@ -172,6 +171,7 @@ function BookingPage() {
                 <Form.Item
                   label="Email (Будет отправлена информаци по записи)"
                   name="email"
+                  className={s.modal_input}
                   rules={[
                     {
                       required: true,
@@ -189,6 +189,7 @@ function BookingPage() {
                 <Form.Item
                   label="Номер телефона"
                   name="phone"
+                  className={s.modal_input}
                   rules={[
                     {
                       required: true,
@@ -209,6 +210,7 @@ function BookingPage() {
                 <Form.Item
                   label="Выберите услугу"
                   name="service"
+                  className={s.modal_input}
                   rules={[
                     { required: true, message: "Пожалуйста, выберите услугу!" },
                   ]}
@@ -231,6 +233,7 @@ function BookingPage() {
                 </Form.Item>
 
                 <Form.Item
+                  className={s.modal_input}
                   label="Выберите мессенджер для обратной связи"
                   name="messenger"
                   rules={[
@@ -257,6 +260,7 @@ function BookingPage() {
                 {/* Поле для ввода никнейма выбранного мессенджера */}
                 {selectedMessenger && (
                   <Form.Item
+                    className={s.modal_input}
                     label={`Никнейм в ${
                       selectedMessenger === "telegram" ? "Telegram" : "WhatsApp"
                     }`}

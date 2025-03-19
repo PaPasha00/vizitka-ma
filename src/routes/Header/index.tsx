@@ -9,11 +9,11 @@ const routes = [
   },
   {
     name: "ЗАПИСЬ",
-    to: "/account",
+    to: "#Booking",
   },
   {
     name: "КОНТАКТЫ",
-    to: "/account",
+    to: "#Contacts",
   },
 ];
 
