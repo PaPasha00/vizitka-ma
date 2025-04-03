@@ -50,10 +50,13 @@ function BookingPage() {
       preferred_contact_method: values.messenger,
     }).then(() => {
       if (!isError) {
-        toast.success("Форма успешно отправлена!", {
-          position: "top-right",
-          autoClose: 3000,
-        });
+        toast.success(
+          "Форма успешно отправлена! Ожидайте подтверждения заявки на почте!",
+          {
+            position: "top-right",
+            autoClose: 3000,
+          }
+        );
         setSelectedMessenger("");
         form.resetFields();
         setModalData(USE_STATE_STARTER);

@@ -7,6 +7,8 @@ export function transformData(data: IData[]) {
 
     data?.forEach((item) => {
       const date = new Date(item.date);
+      if (date < new Date()) return null
+      
       const dayKey = date.toLocaleDateString("ru-RU", {
         day: "numeric",
         month: "long",

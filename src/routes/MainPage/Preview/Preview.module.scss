@@ -35,7 +35,7 @@
 }
 
 .image {
-  transform: rotate(-5deg) scale(1);
+  transform: rotate(-5deg) scale(0.9);
 
   @media (max-width: 1300px) {
     transform: rotate(-5deg) scale(0.8);
