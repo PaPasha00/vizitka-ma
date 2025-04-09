@@ -21,9 +21,9 @@ function Header() {
   return (
     <div className={s.root}>
       <div className={s.wrapper}>
-        <Link className={clsx(s.button, s.button_visible)} to={"/"}>
+        <a className={clsx(s.button, s.button_visible)} href="#preview">
           Михаил <br /> Андреевич
-        </Link>
+        </a>
         <div className={s.rigthPart}>
           {routes.map((el) => (
             <a

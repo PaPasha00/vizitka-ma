@@ -14,25 +14,25 @@
 }
 
 .text {
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 700;
   color: white;
   text-align: center;
 
   @media (max-width: 1300px) {
-    font-size: 60px;
-  }
-
-  @media (max-width: 1000px) {
     font-size: 50px;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     font-size: 40px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     font-size: 30px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 25px;
   }
 }
 

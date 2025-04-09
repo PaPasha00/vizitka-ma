@@ -16,6 +16,10 @@
   align-items: center;
   gap: 30px;
 
+  &_padding {
+    padding-bottom: 50px;
+  }
+
   &_header {
     font-size: 40px;
     color: white;

@@ -4,10 +4,11 @@ import Arrow from "../../../assets/Arrow";
 
 function Preview() {
   return (
-    <div className={s.root}>
+    <div className={s.root} id="preview">
       <div className={s.row}>
         <div className={s.text}>
-          Consultation <br /> With a <br /> Psychologist
+          Констультация <br /> Бережно <br />
+          Эффективно
         </div>
         <img className={s.image} src={image} alt="Михаил Андреевич" />
       </div>

@@ -15,6 +15,7 @@ import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getRuDate } from "../../../utils";
+import clsx from "clsx";
 
 function BookingPage() {
   const { data, isLoading } = useGetAvailableTimesQuery("");
@@ -100,20 +101,34 @@ function BookingPage() {
 
   return (
     <div className={s.root} id="Booking">
-      <div className={s.container}>
-        <div className={s.container_header}>Доступные записи</div>
-        <div className={s.container_buttons}>
-          <div onClick={setPrevPage} className={s.container_buttons_left}>
-            <ButtonArrow />
+      <div
+        className={clsx(
+          s.container,
+          transformedData.length === 0 && s.container_padding
+        )}
+      >
+        {transformedData.length === 0 ? (
+          <div className={s.container_header}>
+            Доступных записей на данный момент нет
           </div>
-          <div className={s.container_text}>
-            {transformedData?.[0]?.monthsDay} —{" "}
-            {transformedData?.[transformedData.length - 1]?.monthsDay}
-          </div>
-          <div onClick={setNextPage} className={s.container_buttons_right}>
-            <ButtonArrow />
-          </div>
-        </div>
+        ) : (
+          <>
+            <div className={s.container_header}>Доступные записи</div>
+            <div className={s.container_buttons}>
+              <div onClick={setPrevPage} className={s.container_buttons_left}>
+                <ButtonArrow />
+              </div>
+              <div className={s.container_text}>
+                {transformedData?.[0]?.monthsDay} —{" "}
+                {transformedData?.[transformedData.length - 1]?.monthsDay}
+              </div>
+              <div onClick={setNextPage} className={s.container_buttons_right}>
+                <ButtonArrow />
+              </div>
+            </div>
+          </>
+        )}
+
         <div className={s.container_wrapper}>
           {!isLoading &&
             transformedData.map((el, index) => (

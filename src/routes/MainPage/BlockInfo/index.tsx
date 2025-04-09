@@ -6,8 +6,9 @@ function BlockInfo() {
     <div className={s.root} id="About">
       <div className={s.row}>
         <div className={s.text}>
-          I’m John Surname, a senior UI/UX designer basded in New York, USA. I
-          passionate to build mobile UI designs.
+          Психолог – это не советчик, а проводник в мир ваших эмоций. Я не даю
+          готовых ответов, но помогаю вам их найти. Конфиденциальность и
+          уважение – основа моей работы.
         </div>
       </div>
       <div className={s.arrow}>
