@@ -114,6 +114,7 @@ function BookingPage() {
         ) : (
           <>
             <div className={s.container_header}>Доступные записи</div>
+            <div className={s.container_secondary}>Стоимость консультации - от 5000р/час</div>
             <div className={s.container_buttons}>
               <div onClick={setPrevPage} className={s.container_buttons_left}>
                 <ButtonArrow />
@@ -161,6 +162,7 @@ function BookingPage() {
 
       {modalData.isOpen && (
         <Modal
+          buttonText={'ОТМЕНА'}
           body={
             <div className={s.modal}>
               <div className={s.modal_title}>

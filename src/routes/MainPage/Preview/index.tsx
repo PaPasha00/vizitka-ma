@@ -7,8 +7,7 @@ function Preview() {
     <div className={s.root} id="preview">
       <div className={s.row}>
         <div className={s.text}>
-          Констультация <br /> Бережно <br />
-          Эффективно
+          Михаил Шляхтунов <br/> Психолог, преподаватель психологии, наставник
         </div>
         <img className={s.image} src={image} alt="Михаил Андреевич" />
       </div>

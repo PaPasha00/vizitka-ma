@@ -1,6 +1,6 @@
 import s from "./Modal.module.scss";
 
-function Modal({ body, onClose }: { body: any; onClose: any }) {
+function Modal({ body, onClose, buttonText }: { body: any; onClose: any, buttonText: string }) {
   return (
     <div className={s.container} onClick={onClose}>
       <div
@@ -11,9 +11,10 @@ function Modal({ body, onClose }: { body: any; onClose: any }) {
       >
         {body}
         <div className={s.modal_closeButton} onClick={onClose}>
-          Отмена
+          {buttonText}
         </div>
       </div>
+      
     </div>
   );
 }

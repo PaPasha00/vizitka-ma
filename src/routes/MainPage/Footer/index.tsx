@@ -9,6 +9,10 @@ const socialArr = [
     name: "INSTA*",
     link: "https://www.instagram.com/shlyahtunov?igsh=MWEzbTIwajI3Z2c5cw==",
   },
+  {
+    name: "WHATSAPP",
+    link: "https://wa.me/79265481934",
+  },
 ];
 
 function Footer() {

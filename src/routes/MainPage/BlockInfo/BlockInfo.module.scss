@@ -16,8 +16,8 @@
 .text {
   font-size: 60px;
   font-weight: 700;
-  color: white;
-  text-align: center;
+  color: rgb(191, 191, 191);
+  text-align: justify;
 
   @media (max-width: 1300px) {
     font-size: 50px;
@@ -33,6 +33,65 @@
 
   @media (max-width: 600px) {
     font-size: 25px;
+  }
+}
+
+.button {
+  background-color: rgb(191, 191, 191);
+  padding: 15px 30px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 300ms ease all;
+
+  &:hover {
+    transform: scale(1.05);
+    background-color: white;
+  }
+}
+
+.infoBlock {
+  width: 100%;
+  flex: 1;
+  overflow-y: scroll;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: justify;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+
+  &_scroll {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_problem {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: justify;
+  }
+
+  &_text {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: justify;
+  }
+
+  @media (max-width: 1000px) {
+    &_problem {
+      font-size: 24px;
+    }
+  
+    &_text {
+      font-size: 20px;
+    }
   }
 }
 
